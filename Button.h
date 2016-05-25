@@ -9,7 +9,7 @@ private:
 	void draw(sf::RenderTarget&, sf::RenderStates) const;
 
 public:
-	Button();
+	Button(sf::Vector2f & position, sf::Texture texture);
 	~Button();
 
 	sf::FloatRect GetSpritePartOneRect();
