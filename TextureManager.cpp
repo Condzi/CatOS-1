@@ -26,6 +26,16 @@ TextureManager::~TextureManager()
 {
 }
 
+sf::Texture * TextureManager::GetTexture(int & id)
+{
+	if (id < 0 || id > m_textures.size())
+	{
+		return nullptr;
+	}
+
+	return &m_textures[id];
+}
+
 int TextureManager::Run()
 {
 	sf::String textureName;

@@ -13,6 +13,8 @@ public:
 	TextureManager(sf::String & texturesFolder);
 	~TextureManager();
 
+	sf::Texture *GetTexture(int&);
+
 	int Run();
 	void Update(float&) {};
 
