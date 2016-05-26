@@ -1,6 +1,6 @@
 #include "TextureManager.h"
 
-
+#include <iostream>
 
 TextureManager::TextureManager(sf::String & texturesFolder) :Application(nullptr)
 {
@@ -10,15 +10,15 @@ TextureManager::TextureManager(sf::String & texturesFolder) :Application(nullptr
 bool TextureManager::loadFromFile(sf::String path)
 {
 	//possible issue with white textures, eh	
-	sf::Texture texture;
+	sf::Texture * texture = new sf::Texture;
 	
-	if (texture.loadFromFile(path))
+	if (texture->loadFromFile(path))
 	{
-		m_textures.push_back(texture);
+		m_textures.push_back(*texture);
 
 		return true;
 	}
-	
+
 	return false;
 }
 
@@ -39,15 +39,15 @@ sf::Texture * TextureManager::GetTexture(int id)
 int TextureManager::Run()
 {
 	sf::String textureName;
-	bool succes;
+	bool isSucces;
 	
 	textureName = "CatOS1Logo.png";
-	succes = loadFromFile(textureName);
+	isSucces = loadFromFile(m_textureFolder + textureName);
 
-	textureName = "ButtonSheet.png";
-	succes = loadFromFile(textureName);
+	//textureName = "ButtonSheet.png";
+	//isSucces = loadFromFile(textureName);
 
-	if (succes)
+	if (isSucces)
 	{
 		return 0;
 	}

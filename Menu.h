@@ -11,7 +11,7 @@ private:
 	void draw(sf::RenderTarget&, sf::RenderStates) const;
 
 public:
-	Menu(sf::Event & eventPointer, sf::Vector2f & position, sf::Texture textureSheet);
+	Menu(sf::Event & eventPointer, sf::Vector2f & position, sf::Texture & textureSheet);
 	~Menu();
 
 	int Run();
@@ -23,6 +23,6 @@ protected:
 private:
 	std::vector<Button> m_buttons;
 	sf::Sprite m_spriteLogo;
-	sf::Texture m_textureSheet;
+	sf::Texture * m_textureSheet;
 };
 

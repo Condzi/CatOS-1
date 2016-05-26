@@ -1,7 +1,5 @@
 #include "Menu.h"
 
-
-
 void Menu::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	target.draw(m_spriteLogo);
@@ -12,14 +10,12 @@ void Menu::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	}
 }
 
-Menu::Menu(sf::Event & eventPointer, sf::Vector2f & position, sf::Texture textureSheet) :Application(eventPointer)
+Menu::Menu(sf::Event & eventPointer, sf::Vector2f & position, sf::Texture & textureSheet) :Application(eventPointer)
 {
-	m_textureSheet = textureSheet;
-	m_spriteLogo.setTextureRect(sf::IntRect(0, 0, 800, 800));
-	m_spriteLogo.setOrigin(sf::Vector2f(m_spriteLogo.getGlobalBounds().width / 2, m_spriteLogo.getGlobalBounds().height / 2));
-	m_spriteLogo.setPosition(position);
-
-	//TODO: Loading buttons textures
+	//this should be different
+	m_textureSheet = &textureSheet;
+	m_spriteLogo.setTexture(*m_textureSheet);
+	//TODO: Loading everything
 }
 
 Menu::~Menu() 

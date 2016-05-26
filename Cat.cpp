@@ -1,5 +1,5 @@
 #include "Cat.h"
-
+#include <iostream>
 
 void Cat::draw()
 {
@@ -38,14 +38,22 @@ void Cat::Init(sf::String texturesFolder)
 	TextureManager * textureManager = new TextureManager(texturesFolder);
 	m_applications.push_back(textureManager);
 	
-	Menu * menu = new Menu(m_event, sf::Vector2f(m_window.getSize().x / 2, m_window.getSize().y / 2), *textureManager->GetTexture(int(1)));
+	if (m_applications[m_currentApplication]->Run() == 1)
+	{
+		exit(1);
+	}
+
+	Menu * menu = new Menu(m_event, sf::Vector2f(m_window.getSize().x / 2, m_window.getSize().y / 2), *textureManager->GetTexture(0));
 	m_applications.push_back(menu);
+	
+	m_currentApplication = 1;
 }
 
 void Cat::Run()
 {
 	sf::Clock fpsclock;
 	sf::Time fps;
+
 	while (m_window.isOpen())
 	{
 		while (m_window.pollEvent(m_event))
