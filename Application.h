@@ -11,6 +11,7 @@ class Application :
 {
 public:
 	Application(sf::Event & eventPointer);
+	Application(std::nullptr_t);
 	~Application();
 
 	virtual int Run() = 0; 
