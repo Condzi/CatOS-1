@@ -1,6 +1,12 @@
 #pragma once
 #include <SFML\Graphics.hpp>
 
+/*
+	Note: 
+	I'm not sure that bool and float references
+	are good.
+	But performence += 0.0001.
+*/
 
 class Button :
 	public sf::Drawable
@@ -9,7 +15,7 @@ private:
 	void draw(sf::RenderTarget&, sf::RenderStates) const;
 
 public:
-	Button(sf::Vector2f & position, sf::Texture texture);
+	Button(sf::Vector2f & position, sf::Texture & textureOne, sf::Texture & textureTwo);
 	~Button();
 
 	sf::FloatRect GetSpritePartOneRect();
@@ -17,14 +23,14 @@ public:
 	bool IsSelected();
 	bool IsClicked();
 
-	void SetIsSelected(bool);
-	void SetIsClicked(bool);
+	void SetIsSelected(bool&);
+	void SetIsClicked(bool&);
 
-	void Update(float);
+	void Update(float&);
 	virtual void Action() = 0;
 
 protected:
-	void animation();
+	void animation(float&);
 
 private:
 	sf::Sprite m_spritePartOne;
