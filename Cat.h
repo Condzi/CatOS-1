@@ -20,7 +20,7 @@ public:
 private:
 	sf::RenderWindow m_window;
 	sf::Event m_event;
-	std::vector<Application> m_applications;
+	std::vector<Application*> m_applications;
 	//0 - txtureManager, 1 - menu, 2 - calculator, 3-paint, 4-notepad
 	short m_currentApplication;
 };
