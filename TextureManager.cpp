@@ -26,7 +26,7 @@ TextureManager::~TextureManager()
 {
 }
 
-sf::Texture * TextureManager::GetTexture(int & id)
+sf::Texture * TextureManager::GetTexture(int id)
 {
 	if (id < 0 || id > m_textures.size())
 	{
