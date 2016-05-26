@@ -8,7 +8,7 @@ void Button::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	target.draw(m_spritePartTwo, states);
 }
 
-Button::Button(sf::Vector2f & position, sf::Texture & textureOne, sf::Texture & textureTwo)
+Button::Button(sf::Vector2f & position, sf::Texture & textureOne, sf::Texture & textureTwo, sf::Time animationDuration)
 {
 	m_spritePartOne.setPosition(position);
 	m_spritePartTwo.setPosition(sf::Vector2f(-200, 0));
@@ -17,6 +17,8 @@ Button::Button(sf::Vector2f & position, sf::Texture & textureOne, sf::Texture & 
 	m_texturePartTwo = textureTwo;
 	m_spritePartOne.setTexture(m_texturePartOne);
 	m_spritePartTwo.setTexture(m_texturePartTwo);
+
+	m_animationDuration = animationDuration;
 }
 
 Button::~Button()

@@ -15,7 +15,7 @@ private:
 	void draw(sf::RenderTarget&, sf::RenderStates) const;
 
 public:
-	Button(sf::Vector2f & position, sf::Texture & textureOne, sf::Texture & textureTwo);
+	Button(sf::Vector2f & position, sf::Texture & textureOne, sf::Texture & textureTwo, sf::Time animationDuration);
 	~Button();
 
 	sf::FloatRect GetSpritePartOneRect();
