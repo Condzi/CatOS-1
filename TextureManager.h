@@ -7,17 +7,17 @@ class TextureManager :
 {
 private:
 	bool loadFromFile(sf::String);
+	void draw(sf::RenderTarget&, sf::RenderStates) const {};
 
 public:
 	TextureManager(sf::String & texturesFolder);
 	~TextureManager();
 
 	int Run();
-	
-	virtual void Update() = 0;
+	void Update(float&) {};
 
 protected:
-	virtual void checkEvents() = 0;
+	void checkEvents() {};
 
 private:
 	std::vector<sf::Texture> m_textures;
