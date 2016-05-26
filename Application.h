@@ -10,13 +10,16 @@ class Application :
 	public sf::Drawable
 {
 public:
-	Application();
+	Application(sf::Event & eventPointer);
 	~Application();
 
-	virtual void Run() = 0; 
-	virtual void Update(float) = 0;
+	virtual int Run() = 0; 
+	virtual void Update(float&) = 0;
 
 protected:
-	virtual void checkEvents(sf::Event&) = 0;
+	virtual void checkEvents() = 0;
+
+protected:
+	sf::Event * m_event;
 };
 

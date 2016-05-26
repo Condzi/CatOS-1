@@ -13,10 +13,10 @@ Button::Button(sf::Vector2f & position, sf::Texture & textureOne, sf::Texture & 
 	m_spritePartOne.setPosition(position);
 	m_spritePartTwo.setPosition(sf::Vector2f(-200, 0));
 
-	m_texturePartOne = textureOne;
-	m_texturePartTwo = textureTwo;
-	m_spritePartOne.setTexture(m_texturePartOne);
-	m_spritePartTwo.setTexture(m_texturePartTwo);
+	m_texturePartOne = &textureOne;
+	m_texturePartTwo = &textureTwo;
+	m_spritePartOne.setTexture(*m_texturePartOne);
+	m_spritePartTwo.setTexture(*m_texturePartTwo);
 
 	m_animationDuration = animationDuration;
 }

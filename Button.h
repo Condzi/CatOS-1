@@ -35,8 +35,8 @@ protected:
 private:
 	sf::Sprite m_spritePartOne;
 	sf::Sprite m_spritePartTwo;
-	sf::Texture m_texturePartOne;
-	sf::Texture m_texturePartTwo;
+	sf::Texture * m_texturePartOne;
+	sf::Texture * m_texturePartTwo;
 	bool m_isSelected;
 	bool m_isClicked;
 	sf::Time m_animationDuration;
