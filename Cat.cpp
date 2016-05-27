@@ -43,7 +43,7 @@ void Cat::Init(sf::String texturesFolder)
 		exit(1);
 	}
 
-	Menu * menu = new Menu(m_event, sf::Vector2f(m_window.getSize().x / 2, m_window.getSize().y / 2), *textureManager->GetTexture(0));
+	Menu * menu = new Menu(m_event, *textureManager->GetTexture(0), sf::Vector2f(m_window.getSize()));
 	m_applications.push_back(menu);
 	
 	m_currentApplication = 1;
@@ -60,6 +60,8 @@ void Cat::Run()
 		{
 			checkEvents();
 		}
+
+		m_applications[m_currentApplication]->Run();
 
 		update(fps.asSeconds());
 		draw();

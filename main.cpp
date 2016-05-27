@@ -2,7 +2,7 @@
 
 int main()
 {
-	Cat cat(800, 600, "CatOS 1 | 1");
+	Cat cat(725, 725, "CatOS 1 | 1");
 	cat.Init("Data/");
 	cat.Run();
 

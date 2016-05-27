@@ -2,6 +2,7 @@
 
 void Menu::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
+	target.draw(m_spriteBackground);
 	target.draw(m_spriteLogo);
 	
 	for (short i = 0; i < m_buttons.size(); i++)
@@ -10,11 +11,19 @@ void Menu::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	}
 }
 
-Menu::Menu(sf::Event & eventPointer, sf::Vector2f & position, sf::Texture & textureSheet) :Application(eventPointer)
+Menu::Menu(sf::Event & eventPointer, sf::Texture & textureSheet, const sf::Vector2f & windowSize) :Application(eventPointer)
 {
-	//this should be different
 	m_textureSheet = &textureSheet;
-	m_spriteLogo.setTexture(*m_textureSheet);
+	m_textureSheet->setSmooth(true);
+	
+	m_spriteLogo.setTexture(textureSheet);
+	m_spriteLogo.setTextureRect(sf::IntRect(0, 1081, 410, 370));
+	m_spriteLogo.setOrigin(m_spriteLogo.getGlobalBounds().width / 2, m_spriteLogo.getGlobalBounds().height / 2);
+	m_spriteLogo.setPosition(sf::Vector2f(windowSize.x / 2, windowSize.y / 2));
+	m_spriteLogo.setScale(sf::Vector2f(windowSize.x / 2000, windowSize.y / 2000));
+	
+	m_spriteBackground.setTexture(*m_textureSheet);
+	m_spriteBackground.setTextureRect(sf::IntRect(300, 1, windowSize.x, windowSize.y));
 	//TODO: Loading everything
 }
 

@@ -41,7 +41,7 @@ int TextureManager::Run()
 	sf::String textureName;
 	bool isSucces;
 	
-	textureName = "CatOS1Logo.png";
+	textureName = "SpriteSheet.png";
 	isSucces = loadFromFile(m_textureFolder + textureName);
 
 	//textureName = "ButtonSheet.png";
