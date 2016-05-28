@@ -41,6 +41,5 @@ private:
 	bool m_isClicked;
 	sf::Time m_animationDuration;
 	sf::Clock m_animationClock;
-
 };
 

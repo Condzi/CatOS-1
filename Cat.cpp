@@ -53,6 +53,7 @@ void Cat::Run()
 {
 	sf::Clock fpsclock;
 	sf::Time fps;
+	short newCurrentApplication;
 
 	while (m_window.isOpen())
 	{
@@ -61,7 +62,13 @@ void Cat::Run()
 			checkEvents();
 		}
 
-		m_applications[m_currentApplication]->Run();
+		//menu returns application - other applications returns menu ID
+		newCurrentApplication = m_applications[m_currentApplication]->Run();
+
+		if (newCurrentApplication >= 2 && newCurrentApplication <= 6)
+		{
+			m_currentApplication = newCurrentApplication;
+		}
 
 		update(fps.asSeconds());
 		draw();

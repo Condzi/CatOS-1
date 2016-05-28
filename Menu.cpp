@@ -33,8 +33,15 @@ Menu::~Menu()
 
 int Menu::Run()
 {
-	//return option (application) to run
-	return 0;
+	for (short i = 0; i < m_buttons.size(); i++)
+	{
+		if (m_buttons[i].IsClicked())
+		{
+			//+2 cause 0 - textureManager, 1 - menu
+			return i + 2;
+		}
+	}
+	return -1;
 }
 
 void Menu::Update(float & fps)

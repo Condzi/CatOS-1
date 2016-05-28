@@ -14,6 +14,7 @@ public:
 	Menu(sf::Event & eventPointer, sf::Texture & textureSheet, const sf::Vector2f & windowSize);
 	~Menu();
 
+	//Note: change it's name, it's don't "run", it's caled one time per Cat::Run loop
 	int Run();
 	void Update(float&);
 
