@@ -17,11 +17,12 @@ private:
 
 public:
 	/// Button constructor
-	/// <param name="position"> button position (upper-left corner) </param>
+	/// <param name="positionX"> button position X (relative to upper-left corner) </param>
+	/// <param name="positionY"> button position Y (relative to upper-left corner) </param>
 	/// <param name="textureOne"> texture when is not selected </param>
 	/// <param name="textureTwo"> texture when selected, "animated" to textureOne </param>
 	/// <param name="animationDuration"> animation duration in seconds </param>
-	Button(sf::Vector2f & position, sf::Texture & textureOne, sf::Texture & textureTwo, sf::Time animationDuration);
+	Button(float positionX, float positionY, sf::Texture & textureOne, sf::Texture & textureTwo, sf::Time animationDuration);
 	~Button();
 
 	/// Sprite One (texture one) collision rectangle
@@ -45,9 +46,11 @@ public:
 	/// Sets Button clicked
 	/// <param name="val"> true or false </param>
 	void SetIsClicked(bool & val);
+	
 	/// Updates Application
 	/// <param name="deltaTime"> delta time (frames per second) </param>
 	void Update(const float & deltaTime);
+	/// Called when buton is clicked
 	virtual void Action() = 0;
 
 protected:
@@ -60,10 +63,10 @@ private:
 	sf::Sprite m_spritePartTwo;
 	sf::Texture * m_texturePartOne;
 	sf::Texture * m_texturePartTwo;
-	bool m_isSelected;
-	bool m_isClicked;
 	sf::Time m_animationDuration;
 	sf::Clock m_animationClock;
+	bool m_isSelected;
+	bool m_isClicked;
 
 };
 

@@ -1,16 +1,15 @@
 #include "Button.h"
 
 
-
 void Button::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	target.draw(m_spritePartOne, states);
 	target.draw(m_spritePartTwo, states);
 }
 
-Button::Button(sf::Vector2f & position, sf::Texture & textureOne, sf::Texture & textureTwo, sf::Time animationDuration)
+Button::Button(float positionX, float positionY, sf::Texture & textureOne, sf::Texture & textureTwo, sf::Time animationDuration)
 {
-	m_spritePartOne.setPosition(position);
+	m_spritePartOne.setPosition(positionX, positionY);
 	m_spritePartTwo.setPosition(sf::Vector2f(-200, 0));
 
 	m_texturePartOne = &textureOne;

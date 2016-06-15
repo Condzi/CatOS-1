@@ -1,5 +1,7 @@
-#include "Cat.h"
 #include <iostream>
+
+#include "Cat.h"
+
 
 void Cat::draw()
 {
@@ -23,19 +25,17 @@ void Cat::update(const float & deltaTime)
 	m_applications[m_currentApplication]->Update(deltaTime);
 }
 
-Cat::Cat(int width, int height, sf::String title)
+Cat::Cat(int width, int height, const std::string & title)
 {
 	m_window.create(sf::VideoMode(width, height), title, sf::Style::Close);
 	m_window.setFramerateLimit(120);
-	// texture manager boot
-	m_currentApplication = 0;
 }
 
 Cat::~Cat()
 {
 }
 
-void Cat::Init(const sf::String & texturesFolder)
+void Cat::Init(const std::string & texturesFolder)
 {
 	TextureManager * textureManager;
 	Menu * menu;
@@ -43,6 +43,8 @@ void Cat::Init(const sf::String & texturesFolder)
 	
 	m_applications.push_back(textureManager);
 	
+	// texture manager boot
+	m_currentApplication = 0;
 	if (m_applications[m_currentApplication]->Call() == 1)
 	{
 		exit(1);

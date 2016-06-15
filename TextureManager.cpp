@@ -1,13 +1,14 @@
-#include "TextureManager.h"
-
 #include <iostream>
 
-TextureManager::TextureManager(const sf::String & texturesFolder) :Application(nullptr)
+#include "TextureManager.h"
+
+
+TextureManager::TextureManager(const std::string & texturesFolder) :Application(nullptr)
 {
 	m_textureFolder = texturesFolder;
 }
 
-bool TextureManager::loadFromFile(const sf::String & filePath)
+bool TextureManager::loadFromFile(const std::string & filePath)
 {
 	sf::Texture * texture = new sf::Texture;
 	
@@ -19,6 +20,7 @@ bool TextureManager::loadFromFile(const sf::String & filePath)
 	}
 
 	delete texture;
+	
 	return false;
 }
 
@@ -47,7 +49,7 @@ sf::Texture * TextureManager::GetTexture(const int & id)
 
 int TextureManager::Call()
 {
-	sf::String textureName;
+	std::string textureName;
 	bool isSucces;
 	
 	textureName = "SpriteSheet.png";

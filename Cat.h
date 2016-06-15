@@ -18,12 +18,12 @@ public:
 	/// <param name="width"> screen width </param>
 	/// <param name="height"> screen height </param>
 	/// <param name="title"> window title </param>
-	Cat(int width, int heigth, sf::String title);
+	Cat(int width, int heigth, const std::string &  title);
 	~Cat();
 
 	/// CatOS initialization process (in real systems is boot, i think)
 	/// <param name="texturesFolder"> textures folder for system with "/" at end </param>
-	void Init(const sf::String & texturesFolder);
+	void Init(const std::string & texturesFolder);
 	/// Starts 'system'
 	void Run();
 
@@ -37,5 +37,6 @@ private:
 	//3	-	paint, 
 	//4	-	notepad
 	short m_currentApplication;
+
 };
 

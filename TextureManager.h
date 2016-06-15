@@ -10,13 +10,13 @@ private:
 	/// <param name="filePath"> path to file </param>
 	/// <returns> true if loaded </returns>
 	/// <returns> false if not loaded </returns>
-	bool loadFromFile(const sf::String & filePath);
+	bool loadFromFile(const std::string & filePath);
 	void draw(sf::RenderTarget&, sf::RenderStates) const;
 
 public:
 	/// TextureManager constructor
 	/// <param name="texturesFolder"> textures folder with '/' at end </param>
-	TextureManager(const sf::String & texturesFolder);
+	TextureManager(const std::string & texturesFolder);
 	~TextureManager();
 	
 	/// Texture pointer getter
@@ -38,6 +38,7 @@ protected:
 
 private:
 	std::vector<sf::Texture*> m_textures;
-	sf::String m_textureFolder;
+	std::string m_textureFolder;
+
 };
 

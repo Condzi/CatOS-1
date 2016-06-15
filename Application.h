@@ -19,10 +19,10 @@ public:
 	Application(std::nullptr_t eventPointer);
 	~Application();
 
-	/// Starts Application
+	/// Calls application one time per Cat::Run() loop circuit to check is everything ok
 	/// <returns> Application's exit code </returns>
 	virtual int Call() = 0; 
-	/// Updates Application
+	/// Updates Application (for animations etc)
 	/// <param name="deltaTime"> delta time (frames per second) </param>
 	virtual void Update(const float & deltaTime) = 0;
 
@@ -32,5 +32,6 @@ protected:
 
 protected:
 	sf::Event * m_event;
+
 };
 

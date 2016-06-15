@@ -31,9 +31,10 @@ protected:
 	void checkEvents();
 
 private:
-	std::vector<Button> m_buttons;
 	sf::Sprite m_spriteLogo;
 	sf::Sprite m_spriteBackground;
 	sf::Texture * m_textureSheet;
+	std::vector<Button> m_buttons;
+
 };
 
