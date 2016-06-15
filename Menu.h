@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+
 #include "Application.h"
 #include "Button.h"
 
@@ -11,14 +12,22 @@ private:
 	void draw(sf::RenderTarget&, sf::RenderStates) const;
 
 public:
-	Menu(sf::Event & eventPointer, sf::Texture & textureSheet, const sf::Vector2f & windowSize);
+	/// Menu constructor
+	/// <param name="eventPointer"> pointer to window events handler </param>
+	/// <param name="textureSheet"> texture sheet for menu stuff (icons etc) </param>
+	/// <param name="windowSize> window size (original window size) </param>
+	Menu(sf::Event & eventPointer, sf::Texture & textureSheet, sf::Vector2f & windowSize);
 	~Menu();
 
-	//Note: change it's name, it's don't "run", it's caled one time per Cat::Run loop
-	int Run();
-	void Update(float&);
+	/// Starts Application
+	/// <returns> Application's exit code </returns>
+	int Call();
+	/// Updates Application
+	/// <param name="deltaTime"> delta time (frames per second) </param>
+	void Update(const float & deltaTime);
 
 protected:
+	/// Event handler
 	void checkEvents();
 
 private:

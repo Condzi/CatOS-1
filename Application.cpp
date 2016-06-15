@@ -7,9 +7,9 @@ Application::Application(sf::Event & eventPointer)
 	m_event = &eventPointer;
 }
 
-Application::Application(std::nullptr_t ptr)
+Application::Application(std::nullptr_t eventPointer)
 {
-	m_event = ptr;
+	m_event = eventPointer;
 }
 
 

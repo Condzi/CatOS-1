@@ -45,21 +45,21 @@ bool Button::IsClicked()
 	return m_isClicked;
 }
 
-void Button::SetIsSelected(bool & value)
+void Button::SetIsSelected(bool & val)
 {
-	m_isSelected = value;
+	m_isSelected = val;
 }
 
-void Button::SetIsClicked(bool & value)
+void Button::SetIsClicked(bool & val)
 {
-	m_isClicked = value;
+	m_isClicked = val;
 }
 
-void Button::Update(float & fps)
+void Button::Update(const float & deltaTime)
 {
 	if (m_isSelected)
 	{
-		animation(fps);
+		animation(deltaTime);
 	}
 
 	if (m_isClicked)
@@ -68,7 +68,7 @@ void Button::Update(float & fps)
 	}
 }
 
-void Button::animation(float & fps)
+void Button::animation(const float & deltaTime)
 {
 	// TODO: figure out how to do that animation
 }

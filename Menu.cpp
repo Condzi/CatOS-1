@@ -5,13 +5,13 @@ void Menu::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	target.draw(m_spriteBackground);
 	target.draw(m_spriteLogo);
 	
-	for (short i = 0; i < m_buttons.size(); i++)
+	for (short i = 0; i < m_buttons.size(); ++i)
 	{
 		target.draw(m_buttons[i]);
 	}
 }
 
-Menu::Menu(sf::Event & eventPointer, sf::Texture & textureSheet, const sf::Vector2f & windowSize) :Application(eventPointer)
+Menu::Menu(sf::Event & eventPointer, sf::Texture & textureSheet, sf::Vector2f & windowSize) :Application(eventPointer)
 {
 	m_textureSheet = &textureSheet;
 	m_textureSheet->setSmooth(true);
@@ -31,9 +31,9 @@ Menu::~Menu()
 {
 }
 
-int Menu::Run()
+int Menu::Call()
 {
-	for (short i = 0; i < m_buttons.size(); i++)
+	for (short i = 0; i < m_buttons.size(); ++i)
 	{
 		if (m_buttons[i].IsClicked())
 		{
@@ -44,9 +44,9 @@ int Menu::Run()
 	return -1;
 }
 
-void Menu::Update(float & fps)
+void Menu::Update(const float & fps)
 {
-	for (short i = 0; i < m_buttons.size(); i++)
+	for (short i = 0; i < m_buttons.size(); ++i)
 	{
 		m_buttons[i].Update(fps);
 	}
@@ -54,5 +54,6 @@ void Menu::Update(float & fps)
 
 void Menu::checkEvents()
 {
-	//here check mouse position (if is on button, then selected)
+	// here check mouse position (if is on button, then selected)
+	// also is button clicked (if is on button and LMB clicked)
 }
