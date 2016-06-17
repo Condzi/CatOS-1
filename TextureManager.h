@@ -27,14 +27,14 @@ public:
 	
 	/// Starts Application
 	/// <returns> Application's exit code </returns>
-	int Call();
+	int Call() final;
 	/// Updates Application
 	/// <param name="deltaTime"> delta time (frames per second) </param>
-	void Update(const float & deltaTime);
+	void Update(const float & deltaTime) final;
 
 protected:
 	/// Event handler
-	void checkEvents();
+	void checkEvents() final;
 
 private:
 	std::vector<sf::Texture*> m_textures;

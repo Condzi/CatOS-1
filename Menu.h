@@ -19,16 +19,11 @@ public:
 	Menu(sf::Event & eventPointer, sf::Texture & textureSheet, sf::Vector2f & windowSize);
 	~Menu();
 
-	/// Starts Application
-	/// <returns> Application's exit code </returns>
-	int Call();
-	/// Updates Application
-	/// <param name="deltaTime"> delta time (frames per second) </param>
-	void Update(const float & deltaTime);
+	int Call() final;
+	void Update(const float & deltaTime) final;
 
 protected:
-	/// Event handler
-	void checkEvents();
+	void checkEvents() final;
 
 private:
 	sf::Sprite m_spriteLogo;
