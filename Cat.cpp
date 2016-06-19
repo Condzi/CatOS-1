@@ -45,7 +45,7 @@ void Cat::Init(const std::string & texturesFolder)
 	
 	// texture manager boot
 	m_currentApplication = 0;
-	if (m_applications[m_currentApplication]->Call() == 1)
+	if (m_applications[m_currentApplication]->Call())
 	{
 		exit(1);
 	}
@@ -60,7 +60,6 @@ void Cat::Init(const std::string & texturesFolder)
 void Cat::Run()
 {
 	sf::Clock fpsclock;
-	sf::Time fps;
 	short newCurrentApplication;
 
 	while (m_window.isOpen())
@@ -78,10 +77,9 @@ void Cat::Run()
 			m_currentApplication = newCurrentApplication;
 		}
 
-		update(fps.asSeconds());
+		update(fpsclock.getElapsedTime().asSeconds());
 		draw();
 
-		fps = fpsclock.getElapsedTime();
 		fpsclock.restart();
 	}
 }

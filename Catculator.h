@@ -39,31 +39,33 @@ protected:
 private:
 	enum buttonType
 	{
-		none,
-		buttonOne,
-		buttonTwo,
-		buttonThree,
-		buttonFour,
-		buttonFive,
-		buttonSix,
-		buttonSeven,
-		buttonEight,
-		buttonNinie,
-		buttonZero,
-		buttonPlus,		// +
-		buttonMinus,	// -
-		buttonTimes,	// *
-		buttonDivide,	// :
-	//	buttonEqual,	// = We don't need that :D (In this version)
-		buttonClearAll	// C One time - clears current input, second one cleans previous
+		none = 'n',
+		buttonOne = '1',
+		buttonTwo = '2',
+		buttonThree = '3',
+		buttonFour = '4',
+		buttonFive = '5',
+		buttonSix = '6',
+		buttonSeven = '7',
+		buttonEight = '8',
+		buttonNinie = '9',
+		buttonZero = '0',
+		//"Action" buttons
+		buttonPlus = '+',
+		buttonMinus = '-',
+		buttonTimes = '*',
+		buttonDivide = ':',
+	//	buttonEqual,			// = We don't need that :D (In this version)
+		buttonClearAll = 'C'	// clears current input, second one cleans previous
 	};
 
 	std::map<buttonType, sf::Texture*> m_textures;
 	std::map<buttonType, sf::Sprite> m_sprites;
 	sf::Font * m_font;
 	sf::RectangleShape m_inputArea;
+	buttonType m_lastActionButton;
 	long double * m_currentInput;
 	long double * m_previousInput;
-
+	
 };
 

@@ -25,15 +25,10 @@ public:
 	/// <returns> nullptr if cannot get texture </returns>
 	sf::Texture * GetTexture(const int & id);
 	
-	/// Starts Application
-	/// <returns> Application's exit code </returns>
 	int Call() final;
-	/// Updates Application
-	/// <param name="deltaTime"> delta time (frames per second) </param>
 	void Update(const float & deltaTime) final;
 
 protected:
-	/// Event handler
 	void checkEvents() final;
 
 private:

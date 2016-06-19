@@ -27,6 +27,7 @@ bool TextureManager::loadFromFile(const std::string & filePath)
 void TextureManager::draw(sf::RenderTarget &, sf::RenderStates) const
 {
 	// probably some boot texture here / information in console or simply nothing
+	return;
 }
 
 TextureManager::~TextureManager()
@@ -49,30 +50,32 @@ sf::Texture * TextureManager::GetTexture(const int & id)
 
 int TextureManager::Call()
 {
-	std::string textureName;
-	bool isSucces;
-	
-	textureName = "SpriteSheet.png";
-	
-	isSucces = loadFromFile(m_textureFolder + textureName);
-
-	//textureName = "ButtonSheet.png";
-	//isSucces = loadFromFile(textureName);
-
-	if (isSucces)
+	const short texturesCount = 2;
+	std::string texturesPath[texturesCount] =
 	{
-		return 0;
+		"SpriteSheet.png",
+		"CatculatorSheet.png"
+	};	
+	
+	for (short i = 0; i < texturesCount; ++i)
+	{
+		if (!loadFromFile(m_textureFolder + texturesPath[i]))
+		{
+			return 1;
+		}
 	}
 
-	return 1;
+	return 0;
 }
 
 void TextureManager::Update(const float & deltaTime)
 {
 	// nothing to do here...
+	return;
 }
 
 void TextureManager::checkEvents()
 {
 	// nothing to do here...
+	return;
 }
